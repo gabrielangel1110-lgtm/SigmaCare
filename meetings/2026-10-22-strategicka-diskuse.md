@@ -81,3 +81,17 @@ Výstup: Ganttův plán po sálech, srovnání scénářů, očekávané výkony
 - OR-Tools scheduling: https://github.com/google/or-tools/blob/stable/ortools/sat/docs/scheduling.md
 - Streamlit: https://docs.streamlit.io/get-started/tutorials/create-an-app
 - Plotly Dash: https://dash.plotly.com/
+
+
+## Varianta C – akademická cesta: R + RStudio + Shiny
+**Účel:** výzkumně orientované modelování délky operací, statistická validace, simulace a interaktivní what-if scénáře.
+
+**Stack:** R/RStudio; tidyverse/data.table pro přípravu dat; tidymodels, lme4, mgcv a survival pro predikční/statistické modely podle povahy úlohy; simmer pro diskrétní simulaci; ompr/ROI a kompatibilní solver pro optimalizaci; Shiny + plotly pro interaktivní plánování; Quarto a renv pro reprodukovatelnou metodiku.
+
+**Postup:** (1) validace a pseudonymizace dat; (2) statistická explorace a segmentace výkonů podle délky a variability; (3) predikce mediánu i horních kvantilů doby výkonu; (4) diskrétní simulace průchodu operačním programem včetně obratů a akutních případů; (5) optimalizace pořadí výkonů s personálními a časovými omezeními; (6) Shiny dashboard s parametry počet sálů, skladba výkonů/TEP, personál, provozní doba a rezerva; (7) validace na oddělených historických datech a publikovatelná metodika.
+
+**Plusy:** transparentní statistická metodika, dobré prostředí pro akademické publikace, možnost interaktivního prototypu bez samostatného frontendu, otevřený ekosystém. **Rizika:** správa produkčního hostingu Shiny, škálování výpočtů, přístupová práva, integrace do HIS; kvalita optimalizace závisí na zvoleném solveru, nikoli na jazyku R.
+
+**Srovnání:** A = Fabric + Planning (integrované Microsoft prostředí; ověřit aktuální dostupnost/licence); B = Python + vlastní webové UI (flexibilní provozní optimalizace); C = R + Shiny (akademická/statistická cesta). Všechny varianty mohou číst stejný validovaný datový model a publikovat KPI do Power BI. O výběru rozhodnout podle pilotu, bezpečnosti, nákladů a kompetencí týmu.
+
+**Pilot C:** jedna klinika, anonymizovaný/syntetický dataset, predikce P50/P80/P90, 3 scénáře (další sál, více TEP, změna délky provozu), výstup Shiny Gantt + KPI a Quarto metodika. Nejde o automatické klinické rozhodování.
