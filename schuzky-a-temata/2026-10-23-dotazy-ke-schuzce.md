@@ -1,5 +1,36 @@
 # SigmaCare – otázky ke schůzce (23. 10. 2026)
 
+## BOD 1 – rozhodnutí o rozsahu řešení (nejprve položit)
+**Hlavní otázka:** „Chcete automatické kontroly a komentáře k již vypočteným KPI, nebo interaktivního AI analytika, který na základě dotazu sám vybírá schválené analytické funkce a hledá souvislosti?“
+
+**A – pravidlová automatizace:** předem definované KPI, kontroly kvality a prahové hodnoty, šablony komentářů; Azure Functions nebo Fabric, bez nutnosti LLM. Plus: levnější, předvídatelná, snadno auditovatelná. Minus: neumí ad hoc otázky bez doprogramování.
+
+**Mezivarianta:** výpočty zůstávají deterministické, schválený LLM pouze formuluje shrnutí z ověřených výsledků.
+
+**B – řízený AI analytik:** jazykový model + schválené read-only analytické API, ověřování oprávnění pro každou nemocnici, audit, testování správnosti a nákladů. Plus: nové otázky a flexibilní analýzy. Minus: vyšší integrační, bezpečnostní a provozní složitost. Neumožnit přímý neomezený přístup k datům.
+
+**Doplňující otázky v bodu 1:**
+- Kdo je cílový uživatel a co přesně má systém udělat při otevření Power BI?
+- Uveďte 3 konkrétní otázky nebo komentáře, které má pilot zvládnout.
+- Má AI jen komentovat, také navrhovat hypotézy, nebo i spouštět analýzy? Smí něco zapisovat či měnit?
+- Které výsledky musí před publikací schválit člověk?
+- Jak poznáme, že pilot uspěl (přesnost, úspora času, uživatelská hodnota)?
+
+**Rozhodnutí ze schůzky:** A / mezivarianta / B / nerozhodnuto
+
+**Poznámky a odpovědi:**
+
+....................................................................................
+
+## BOD 2 – společné technické otázky pro obě varianty
+Následující dotazy pokládat u A i B: datový zdroj a výsledné tabulky, aktualizace a dokončení Modeleru, objem a kvalita dat, rozhraní pro čtení, oddělení nemocnic, hosting (Azure/Fabric), výstup do Power BI, odpovědnost za KPI, bezpečnost a audit.
+
+## BOD 3 – doplňující otázky jen pro variantu B
+Které schválené analytické nástroje může agent volat? Jak se bude kontrolovat správnost interpretací, přístupová práva, náklady na model, evidence dotazů, bezpečnost promptů a lidské schvalování?
+
+---
+
+
 ## Současné datové toky
 1. Kde jsou výsledné reportovací tabulky (Azure Storage, SQL, jiné)?
 2. Jak často se data aktualizují a jak je potvrzeno úspěšné dokončení transformací?
