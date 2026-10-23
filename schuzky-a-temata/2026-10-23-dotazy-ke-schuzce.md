@@ -172,3 +172,18 @@
 
 **Rozhodnutí A / B / C:** _______________________________
 **Poznámky:** _________________________________________
+
+## 17. MCP hosting a praktické scénáře (pokud zvolí interaktivního agenta)
+**Příklad 1:** Manažer: „Proč je využití sálu 67 %, když plán byl 85 %?“ Schválený MCP klient zavolá read-only analytickou funkci v Pythonu, dostane ověřené hodnoty a zdroje; LLM sepíše komentář, nepotvrzené příčiny označí za hypotézy.
+
+**Příklad 2:** „Ukaž tři kliniky s největší odchylkou predikované a skutečné délky operací.“ MCP poskytne jen povolenou funkci, ne přístup k celému Data Lake.
+
+**A – lokální počítač:** vývoj a syntetické testy; neznamená automaticky dostupnost vzdálenému ChatGPT.
+**B – Azure SigmaCare:** doporučený produkční hosting, např. Azure Container Apps; vyžaduje schválený HTTPS endpoint, autentizaci, autorizaci, audit a oddělení nemocnic.
+**C – externí VPS:** technicky možné, ale vyšší bezpečnostní a smluvní nároky; pouze po schválení.
+
+**Otázky:** Potřebují vzdálený MCP vůbec? Který klient (ChatGPT/Teams/vlastní)? Kde server poběží? Je možné bezpečné síťové připojení klienta? Kdo spravuje Entra ID/OAuth, oprávnění, audit a náklady? Jaká data smí klient a LLM dostat? Které 2–3 read-only analytické funkce se mají vystavit?
+
+**Doporučení:** První pilot bez produkčního MCP; po potvrzení interaktivního scénáře nasadit MCP v Azure SigmaCare. MCP není samo o sobě bezpečnostní tunel.
+
+**Odpovědi / úkoly:** _______________________________
