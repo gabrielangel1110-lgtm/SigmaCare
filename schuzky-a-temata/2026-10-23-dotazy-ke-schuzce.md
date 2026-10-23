@@ -148,3 +148,27 @@
 **Kontaktní osoby:** __________
 **Podklady a termíny:** __________
 **Úkoly Roman / já / SigmaCare:** __________
+
+## 16. Způsob používání a integrace AI agenta – NOVÁ ROZHODOVACÍ OTÁZKA
+**Hlavní otázka:** „Jak si představujete každodenní použití AI agenta? Má automaticky vytvářet komentáře v SigmaCOR/Power BI, nebo chcete interaktivního asistenta, kterému budou uživatelé pokládat otázky například přes ChatGPT? Nebo obě možnosti?“
+
+**A – Automatický reporting:** plánované spuštění Python analýzy, pravidla a volitelně LLM přes schválené API, výsledek do reportovací tabulky a Power BI/SigmaCOR. MCP není nutné.
+
+**B – Interaktivní analytik:** uživatel se ptá přes schváleného klienta (např. ChatGPT); MCP server zpřístupňuje jen povolené read-only analytické funkce, vrací podložené výsledky. MCP není sám o sobě bezpečnostní tunel ani náhrada přístupových práv.
+
+**C – Obě varianty:** společné Python analytické jádro; automatizační rozhraní (např. REST API nebo plánované dávky) a později MCP pro interaktivní dotazy.
+
+**Doporučení:** C jako cílová architektura, A jako první pilot. MCP doplnit, až bude potvrzený interaktivní scénář, identity a oprávnění.
+
+**Doplňující otázky:**
+- Kdo bude uživatelem (management, analytici, nemocnice), odkud se přihlásí a co smí vidět?
+- Mají uživatelé pracovat v Power BI, SigmaCOR, ChatGPT, Teams nebo samostatné aplikaci?
+- Má být spuštění automatické po aktualizaci dat, na tlačítko, nebo přirozeným jazykem?
+- Má být schválené OpenAI API, Azure OpenAI / Microsoft Foundry, nebo vlastní lokálně provozovaný LLM? Jaká data do něj smějí odcházet?
+- Kdo bude provozovat a zabezpečovat REST API / MCP server, identity, audit, síťové připojení a oddělení nemocnic?
+- Mají se výsledky pouze číst a komentovat, nebo se smí zapisovat do reportovacích výstupů? Jak bude probíhat lidské schválení?
+
+**Požadované podklady navíc:** cílový uživatelský scénář, schválený LLM endpoint a podmínky použití, specifikace integračního rozhraní a identity, cílový report/ukázka uživatelského prostředí, pravidla auditování.
+
+**Rozhodnutí A / B / C:** _______________________________
+**Poznámky:** _________________________________________
