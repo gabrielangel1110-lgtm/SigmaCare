@@ -68,3 +68,44 @@ Nejde automaticky o plnohodnotné digitální dvojče; jeho rozsah (simulace, zp
 
 ## 9. Referenční architektura
 Viz [SigmaAI – referenční architektura](SigmaAI/REFERENCNI_ARCHITEKTURA.md). Původní uživatelem dodaný obrázek je zdrojovým podkladem; binární kopii obrázku je ještě nutné vložit do repozitáře.
+
+
+## 10. Digitální klinika – proaktivní řízení (prioritní cílová schopnost)
+
+**Cíl:** SigmaAI nejen sleduje a předvídá provoz, ale sama systematicky vyhledává rizika, kolize a příležitosti, navrhuje konkrétní proveditelná opatření a následně vyhodnocuje jejich dopad. Nejde o autonomní klinické rozhodování.
+
+### Rozhodovací cyklus
+1. **Sledování:** plán, skutečnost, čekací listiny, sály, lůžka, personál, materiál, náklady a produkce.
+2. **Včasné varování:** kolize kapacit, nedostatek zdrojů, anomálie, propady a nevyužité možnosti.
+3. **Predikce:** očekávaný vývoj produkce, čekacích dob, vytížení a potřeb zdrojů.
+4. **Simulace scénářů:** uzávěra oddělení, výpadek sálu, změna směn, přerozdělení výkonů, omezení lůžek.
+5. **Aktivní doporučení:** porovnání variant, přínosů, rizik, omezení a podmínek realizace.
+6. **Lidské schválení:** odpovědný manažer / zdravotník schvaluje změny, zejména klinickou prioritu pacientů a personální rozhodnutí.
+7. **Zpětná vazba:** sledování, zda opatření zlepšilo provozní, ekonomické a kvalitativní výsledky.
+
+### Konkrétní scénáře (ilustrační, nikoliv již implementované)
+| Scénář | Co SigmaAI rozpozná | Co doporučí | Kdo rozhoduje |
+|---|---|---|---|
+| Kolize operačního plánu | Plán překračuje dostupnost sálů, personálu nebo lůžek | Varianty přesunů a přepočet dopadů | Provozní vedení a klinické týmy |
+| Uvolněný termín | Volná kapacita a kandidáti na čekací listině | Seznam možných kandidátů podle **schválených klinických a organizačních kritérií**, k odbornému posouzení | Oprávněný zdravotník; systém sám neurčuje klinickou prioritu |
+| Nedostatek materiálu | Očekávaná spotřeba převyšuje dostupné zásoby | Ověření zásob, objednávky, alternativní harmonogram | Odpovědný pracovník |
+| Plánovaná uzávěra | Dočasný pokles sálových/lůžkových kapacit | Scénáře přeplánování výkonů, personálu a lůžek | Vedení kliniky a dotčené profese |
+| Neobvyklé náklady | Náklad na případ se odchyluje od srovnatelné skupiny | Rozpad nákladů a možné oblasti prověření | Controlling a klinika |
+| Nedostatek personálu | Nesoulad plánovaných výkonů a kvalifikovaného personálu | Varianty rozvrhu při respektování kvalifikací a pravidel | Odpovědný vedoucí |
+
+### Větve produktu
+- **SigmaOR:** plánování sálů, lůžek, čekací listiny, kapacitní scénáře.
+- **SigmaHEART:** kardiologické výkony, návaznosti, materiál a zdroje.
+- **SigmaCALC:** nákladové dopady alternativ, ekonomika hospitalizačního případu.
+- **Sigma Academy:** zavedení změn, školení, práce s doporučeními, vyhodnocování přijetí změny.
+- **SigmaAI:** společný mechanismus sledování → varování → predikce → simulace → doporučení → schválení → vyhodnocení.
+
+### Pravidla kvality a bezpečnosti
+Každé doporučení má mít zdrojové hodnoty, čas aktualizace, použitou metodiku, předpoklady, odhad dopadu, míru nejistoty a určeného schvalovatele. Zjištěná souvislost není automaticky příčina. Systém nesmí samostatně měnit pořadí pacientů, plán péče ani přidělení personálu bez schváleného procesu. Přístup k pacientským údajům a jejich použití vyžaduje samostatné právní a bezpečnostní posouzení.
+
+### Co specifikovat před technickým návrhem
+- Seznam 10–20 nejdůležitějších rozhodovacích situací a jejich vlastníků.
+- Pro každou situaci: vstupy, omezení, povolené kroky, kritéria úspěchu a odpovědnost.
+- Kritéria klinické priority a spravedlivého zacházení s čekací listinou; možnost odborného přezkumu.
+- Jaké scénáře se mají simulovat a jak se bude validovat jejich přesnost.
+- Jak se změří kvalita varování, falešné poplachy a skutečný přínos opatření.
